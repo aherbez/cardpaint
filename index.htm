@@ -1,0 +1,113 @@
+<html>
+<head>
+<title>
+</title>
+
+<style type="text/css">
+
+body
+{
+	font-family: arial, sans;
+}
+
+canvas {
+	border: 1px solid #000;
+	background: #fff;
+}
+
+div#offscreen
+{
+	position: absolute;
+	left: -10000;
+}
+
+div#desc
+{
+	position: absolute;
+	left: 420px;
+	top: 10px;
+}
+
+div {
+	border: 1px solid 0x000000;
+	position: relative;
+	top: 50px;
+}
+
+
+div#tools {
+	float: right;
+}
+
+.pencil
+{
+	width: 32px;
+	height: 32px;
+	padding: 3px;
+}
+
+.selected
+{
+	width: 35px;
+	height: 35px;
+	border: 2px solid #f00;
+	padding: 0px;
+}
+
+.tool {
+	width: 32px;
+	height: 32px;
+	padding: 3px;	
+	border: 0px;
+}
+
+.tool_selected {
+	border: 2px solid #000;
+}
+
+#application
+{
+	border: 3px solid #888;
+	width: 50%;
+	padding: 5px;
+	background: #ddd;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Carboard Paint v0.1</h1>
+Draw with the cardboard tool first to make some shapes, then add details with paint and markers. <br />
+Paint and markers can be erased independently without affecting each other, and the eraser can also be used to trim carboard shapes.<br />
+Click on the icons to set colors or change tools.
+<div id="application">
+	<canvas id="canvasMain" width="400" height="400"></canvas>
+	<div id="tools">
+		<img class='pencil' src='img/Pencils_01.png' onClick='setColor(1)' id='color1' />
+		<img class='pencil' src='img/Pencils_02.png' onClick='setColor(2)' id='color2' />
+		<img class='pencil' src='img/Pencils_03.png' onClick='setColor(3)' id='color3' /><br />
+		<img class='pencil' src='img/Pencils_04.png' onClick='setColor(4)' id='color4' />
+		<img class='pencil' src='img/Pencils_05.png' onClick='setColor(5)' id='color5' />
+		<img class='pencil' src='img/Pencils_06.png' onClick='setColor(6)' id='color6' /><br />
+		<img class='pencil' src='img/Pencils_07.png' onClick='setColor(7)' id='color7' />
+		<img class='pencil' src='img/Pencils_08.png' onClick='setColor(8)' id='color8' />
+		<img class='pencil' src='img/Pencils_09.png' onClick='setColor(9)' id='color9' />
+	<hr />
+		<img class='selected' src='img/box.png' onClick='setTool(1)' id='tool1' />
+		<img class='tool' src='img/brush64.png' onClick='setTool(2)' id='tool2' />
+		<img class='tool' src='img/pencil.png' onClick='setTool(3)' id='tool3' /> <br />
+	<hr />
+		<img class='tool' src='img/eraser.png' onClick='toggleErase()' id='eraser' />
+	</div>
+</div>
+
+<div id="offscreen" display="hidden"></div>
+
+<script src="DrawSurf.js"></script>
+<script src="sandwich.js"></script>
+
+</body>
+</html>
